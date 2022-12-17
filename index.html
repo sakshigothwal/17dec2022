@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>"Simple calculator using HTML FORMS"</title>
+    </head>
+    <body>
+        <form style="display:inline-block">
+            <input type="text" name="number1" size="5"/>
+            <select name="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" name="number2" size="5"/>
+            <input type="button" value="=" onclick="s('ok')">
+        </form>
+        <span id="result" style="display:inline-block"></span>
+
+        <script>
+            //1.Function defination
+            //Global variable
+            let n1 = document.querySelector("input[name=`number1`]");  // object.method() 
+            var n2 = document.querySelector("input[name=`number2`]");  // object.method()  
+
+            let rslt = document.getElementById("result");
+            let op = document.querySelector('select[name="operator"]');
+            function s(){    // formal argument
+
+                //Explicit Converstion from string to nubmer
+                var p = parseFloat(n1.value);
+                var q = parseFloat(n2.value);
+
+                /*
+                switch(expression) {
+                    case p:
+                        // code block
+                        break;
+                    case q:
+                        // code block
+                        break;
+                    default:
+                        // code block
+                    }
+                }
+                */
+                console.log(op.value);
+                switch(op.value){
+
+                    case "+":
+                        console.log(p + q);
+                        rslt.innerHTML = p + q;
+                        break;
+
+                    case '-':
+                        console.log(p - q);
+                        rslt.innerHTML = p - q;
+                        break;
+                    case `*`:
+                        console.log(p * q);
+                        rslt.innerHTML = p * q;
+                        break;
+                    case "/":
+                        console.log(p / q);
+                        rslt.innerHTML = p / q;
+                        break;
+                    default:
+                        //console.log(op.value)
+                        console.log("Invaid Operation")
+                }
+
+                //Every function return something/result
+            }
+        </script>
+    </body>
+</html>
